@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!43 &100370445
+--- !u!43 &159812226
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -850,9 +850,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Spline: {fileID: 654379536}
-  roadWidth: 3
+  halfRoadWidth: 3
   m_SegmentsPerMeter: 2
-  m_Mesh: {fileID: 100370445}
+  m_Mesh: {fileID: 159812226}
   m_TextureScale: 2
 --- !u!33 &654379540
 MeshFilter:
@@ -861,7 +861,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654379535}
-  m_Mesh: {fileID: 100370445}
+  m_Mesh: {fileID: 159812226}
 --- !u!23 &654379541
 MeshRenderer:
   m_ObjectHideFlags: 0

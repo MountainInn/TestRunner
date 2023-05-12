@@ -24,7 +24,7 @@ public class SplineRoadLanes : MySplineComponent
     {
         laneOffsets = new List<Vector3>();
 
-        float laneWidth = ( loftRoad.RoadWidth * 2 - roadPadding * 2) / laneCount;
+        float laneWidth = ( loftRoad.HalfRoadWidth * 2 - roadPadding * 2) / laneCount;
 
         bool isOdd = laneCount % 2 == 1;
 

@@ -19,7 +19,7 @@ public class LoftRoadBehaviour : MonoBehaviour
     SplineContainer m_Spline;
 
     [SerializeField]
-    float roadWidth;
+    float halfRoadWidth;
 
     [SerializeField]
     int m_SegmentsPerMeter = 1;
@@ -30,7 +30,7 @@ public class LoftRoadBehaviour : MonoBehaviour
     [SerializeField]
     float m_TextureScale = 1f;
 
-    public float RoadWidth => roadWidth;
+    public float HalfRoadWidth => halfRoadWidth;
 
     [Obsolete("Use LoftSpline instead.", false)]
     public Spline spline => LoftSpline;
@@ -168,7 +168,7 @@ public class LoftRoadBehaviour : MonoBehaviour
 
                 var tangent = math.normalizesafe(math.cross(up, dir)) * new float3(1f / scale.x, 1f / scale.y, 1f / scale.z);
 
-                var w = roadWidth;
+                var w = halfRoadWidth;
 
                 m_Positions.Add(pos - (tangent * w));
                 m_Positions.Add(pos + (tangent * w));
