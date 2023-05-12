@@ -7,19 +7,18 @@ public class InputService : MonoBehaviour
     private float swipeThreshold;
 
     [SerializeField]
-    private UnityEvent<Direction>
-        onSwipe;
+    private UnityEvent<Direction> onSwipe;
 
-    Vector3 prev, delta,
-        beginPos, endPos;
 
-    bool ongoingSwipe;
+    private Vector3 beginPos, endPos, delta;
+
+    private bool ongoingSwipe;
+
 
     private void Update()
     {
         DetectSwipes();
     }
-
 
     private void DetectSwipes()
     {

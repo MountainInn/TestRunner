@@ -8,47 +8,46 @@ public class CollectibleSpawner : MonoBehaviour
     [SpaceAttribute]
     [SerializeField] private float spawnSpacing;
 
-    private IObjectPool<GameObject>
-        pool;
+    private IObjectPool<GameObject> pool;
 
-    void Awake()
+    private void Awake()
     {
         pool = new ObjectPool<GameObject>(CreateCollectible,
-                                                     OnGetCollectible,
-                                                     OnReleaseCollectible,
-                                                     OnDestroyCollectible,
-                                                     collectionCheck: true,
-                                                     defaultCapacity: 30,
-                                                     maxSize: 60);
+                                          OnGetCollectible,
+                                          OnReleaseCollectible,
+                                          OnDestroyCollectible,
+                                          collectionCheck: true,
+                                          defaultCapacity: 30,
+                                          maxSize: 60);
     }
 
-    void Start()
+    private void Start()
     {
         Spawn();
     }
 
-    GameObject CreateCollectible()
+    private GameObject CreateCollectible()
     {
         var newCollectible = GameObject.Instantiate(collectiblePrefab);
 
-        newCollectible.gameObject.GetComponent<Collectible>().pool = pool;
+        newCollectible.gameObject.GetComponent<Collectible>().SetPool(pool);
 
         return newCollectible;
     }
 
-    void OnGetCollectible(GameObject coin)
+    private void OnGetCollectible(GameObject collectible)
     {
-        coin.SetActive(true);
+        collectible.SetActive(true);
     }
 
-    void OnReleaseCollectible(GameObject coin)
+    private void OnReleaseCollectible(GameObject collectible)
     {
-        coin.SetActive(false);
+        collectible.SetActive(false);
     }
 
-    void OnDestroyCollectible(GameObject coin)
+    private void OnDestroyCollectible(GameObject collectible)
     {
-        Destroy(coin.gameObject);
+        Destroy(collectible);
     }
 
 

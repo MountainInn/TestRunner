@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PooledMonoBehaviour : MonoBehaviour
+abstract public class PooledMonoBehaviour : MonoBehaviour
 {
-    public IObjectPool<GameObject> pool;
+    protected IObjectPool<GameObject> pool;
+
+    public void SetPool(IObjectPool<GameObject> pool)
+    {
+        this.pool = pool;
+    }
 
     protected void Return()
     {

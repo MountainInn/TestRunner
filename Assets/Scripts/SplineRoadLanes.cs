@@ -7,7 +7,7 @@ public class SplineRoadLanes : MySplineComponent
     [SerializeField] private LoftRoadBehaviour loftRoad;
     [SerializeField] private int laneCount;
 
-    private List<Vector3> laneOffsets;
+    public int LaneCount => laneCount;
 
     private int _mid;
     public int Mid
@@ -16,9 +16,10 @@ public class SplineRoadLanes : MySplineComponent
         set => _mid = value;
     }
 
-    public int LaneCount => laneCount;
+    private List<Vector3> laneOffsets;
 
-    void Awake()
+
+    private void Awake()
     {
         laneOffsets = new List<Vector3>();
 

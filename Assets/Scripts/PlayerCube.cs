@@ -16,14 +16,14 @@ public class PlayerCube : MonoBehaviour
         }
     }
 
-    void Awake()
+    private void Awake()
     {
         scoreLabel = GetComponentInChildren<TextMeshPro>();
 
         Score = 0;
     }
 
-    void OnTriggerEnter(Collider collider)
+    private void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent(out Collectible collectible))
         {
