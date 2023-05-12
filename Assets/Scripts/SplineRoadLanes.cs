@@ -6,6 +6,7 @@ public class SplineRoadLanes : MySplineComponent
 {
     [SerializeField] private LoftRoadBehaviour loftRoad;
     [SerializeField] private int laneCount;
+    [SerializeField] private float roadPadding;
 
     public int LaneCount => laneCount;
 
@@ -23,16 +24,16 @@ public class SplineRoadLanes : MySplineComponent
     {
         laneOffsets = new List<Vector3>();
 
-        float laneWidth = loftRoad.RoadWidth * 2 / laneCount;
+        float laneWidth = ( loftRoad.RoadWidth * 2 - roadPadding * 2) / laneCount;
 
-        bool isEven = laneCount % 2 == 0;
+        bool isOdd = laneCount % 2 == 1;
 
-        Mid = laneCount / 2;
-
-        if (!isEven)
+        if (isOdd)
         {
             laneOffsets.Add(Vector3.zero);
         }
+
+        Mid = laneCount / 2;
 
         foreach (var sign in new []{ -1, 1 })
         {
