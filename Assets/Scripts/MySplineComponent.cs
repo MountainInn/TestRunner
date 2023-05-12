@@ -7,7 +7,7 @@ public abstract class MySplineComponent : MonoBehaviour
 
     public SplineContainer TargetSpline => targetSpline;
 
-    protected void EvaluatePositionAndRotation(float t, out Vector3 position, out Quaternion rotation)
+    public void EvaluatePositionAndRotation(float t, out Vector3 position, out Quaternion rotation)
     {
         position = targetSpline.EvaluatePosition(t);
         rotation = Quaternion.identity;
