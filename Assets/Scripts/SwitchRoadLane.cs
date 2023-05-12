@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SplineMoveAlongRoadLane : MonoBehaviour
+public class SwitchRoadLane : MonoBehaviour
 {
     [SerializeField] private SplineRoadLanes roadLanes;
 
