@@ -28,8 +28,6 @@ public class PlayerCube : MonoBehaviour
         if (collider.TryGetComponent(out Collectible collectible))
         {
             Score += 1;
-
-            GameObject.Destroy(collectible.gameObject);
         }
     }
 }
