@@ -1,13 +1,12 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class CollectibleSpawner : MySplineComponent
+public class CollectibleSpawner : MonoBehaviour
 {
     [SerializeField] private SplineRoadLanes roadLanes;
-    [SerializeField] private float spawnSegmentLength;
-    [SerializeField] private int collectiblesPerSegment;
-
     [SerializeField] private GameObject collectiblePrefab;
+    [SpaceAttribute]
+    [SerializeField] private float spawnSpacing;
 
     private IObjectPool<GameObject>
         pool;
@@ -55,9 +54,9 @@ public class CollectibleSpawner : MySplineComponent
 
     public void Spawn()
     {
-        float totalLength = TargetSpline.CalculateLength();
+        float totalLength = roadLanes.TargetSpline.CalculateLength();
 
-        float coveredLength = spawnSegmentLength;
+        float coveredLength = spawnSpacing;
 
         float t = coveredLength / totalLength;
 
@@ -67,7 +66,7 @@ public class CollectibleSpawner : MySplineComponent
 
             Vector3 offset = roadLanes.EvaluateLaneOffset(t, lane);
 
-            EvaluatePositionAndRotation(t, out Vector3 position, out Quaternion rotation);
+            roadLanes.EvaluatePositionAndRotation(t, out Vector3 position, out Quaternion rotation);
 
             position += offset;
 
@@ -75,7 +74,7 @@ public class CollectibleSpawner : MySplineComponent
             collectible.transform.position = position;
             collectible.transform.rotation = rotation;
 
-            coveredLength += spawnSegmentLength;
+            coveredLength += spawnSpacing;
             t = coveredLength / totalLength;
         }
     }
