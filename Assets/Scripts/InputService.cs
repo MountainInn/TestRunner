@@ -24,7 +24,6 @@ public class InputService : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log($"Down");
             ongoingSwipe = true;
 
             beginPos = Input.mousePosition;
@@ -32,7 +31,6 @@ public class InputService : MonoBehaviour
 
         if (ongoingSwipe && Input.GetMouseButtonUp(0))
         {
-            Debug.Log($"Up");
             ongoingSwipe = false;
 
             endPos = Input.mousePosition;
