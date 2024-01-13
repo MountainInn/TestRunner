@@ -1,1 +1,1 @@
-[<img src="./TestRunner.JPG" width="300"/>](https://github.com/MountainInn/Portfolio/blob/main/TestRunner.JPG?raw)
+[<img src="./TestRunner.JPG" width="300"/>](https://github.com/MountainInn/TestRunner/blob/main/TestRunner.JPG?raw)
